@@ -1,0 +1,23 @@
+# Fail2Ban filter for openssh for Alpine
+#
+# Filtering login attempts with PasswordAuthentication No in sshd_config.
+#
+
+[INCLUDES]
+
+# Read common prefixes. If any customizations available -- read them from
+# common.local
+before = common.conf
+
+[Definition]
+
+_daemon = sshd
+
+failregex = (Connection closed by|Disconnected from) authenticating user .* <HOST> port \d* \[preauth\]
+
+ignoreregex =
+
+[Init]
+
+# "maxlines" is number of log lines to buffer for multi-line regex searches
+maxlines = 10

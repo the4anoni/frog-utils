@@ -1,0 +1,6 @@
+[sshd-key]
+enabled  = true
+filter   = alpine-sshd-key
+port     = ssh
+logpath  = /var/log/messages
+maxretry = 2
