@@ -11,5 +11,7 @@ service docker start
 # Make sure our containers do daily auto update.
 mkdir -p /opt/watchtower
 wget https://raw.githubusercontent.com/the4anoni/frog-utils/master/files/watchtower-compose.yaml -O /opt/watchtower/docker-compose.yaml
-cd /opt/watchtower && docker compose up -d
+cd /opt/watchtower
+sleep 30 # make sure docker daemon is running
+docker compose up -d
 exit 0
